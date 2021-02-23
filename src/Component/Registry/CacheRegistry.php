@@ -1,8 +1,10 @@
 <?php
+
 /**
  * Copyright (C) GrizzIT, Inc. All rights reserved.
  * See LICENSE for license details.
  */
+
 namespace GrizzIt\Cache\Component\Registry;
 
 use GrizzIt\Cache\Common\CacheInterface;
@@ -15,7 +17,7 @@ class CacheRegistry implements CacheRegistryInterface
      *
      * @var CacheInterface[]
      */
-    private $caches = [];
+    private array $caches = [];
 
     /**
      * Registers a cache by a key.

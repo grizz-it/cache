@@ -1,8 +1,10 @@
 <?php
+
 /**
  * Copyright (C) GrizzIT, Inc. All rights reserved.
  * See LICENSE for license details.
  */
+
 namespace GrizzIt\Cache\Component\Cache;
 
 use GrizzIt\Cache\Common\CacheInterface;
@@ -19,35 +21,35 @@ class FileSystemCache implements CacheInterface
      *
      * @var FileSystemInterface
      */
-    private $fileSystem;
+    private FileSystemInterface $fileSystem;
 
     /**
      * Contains the file system normalizer.
      *
      * @var FileSystemNormalizerInterface
      */
-    private $fileSystemNormalizer;
+    private FileSystemNormalizerInterface $fileSystemNormalizer;
 
     /**
      * Contains all data that has been fetched.
      *
      * @var array
      */
-    private $cache = [];
+    private array $cache = [];
 
     /**
      * Determines whether the buffer is enabled or not.
      *
      * @var bool
      */
-    private $bufferEnabled = false;
+    private bool $bufferEnabled = false;
 
     /**
      * Stores the keys which need to be rewritten.
      *
      * @var array
      */
-    private $rewrite = [];
+    private array $rewrite = [];
 
     /**
      * Constructor.
@@ -140,8 +142,10 @@ class FileSystemCache implements CacheInterface
                 sprintf('%s.json', $key)
             );
 
-            if ($value['ttl'] !== null
-            && $value['ttl'] < strtotime('now')) {
+            if (
+                $value['ttl'] !== null
+                && $value['ttl'] < strtotime('now')
+            ) {
                 $this->delete($key);
 
                 throw new CacheMissException($key, 'TTL expired');

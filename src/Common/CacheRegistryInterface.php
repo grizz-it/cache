@@ -1,8 +1,10 @@
 <?php
+
 /**
  * Copyright (C) GrizzIT, Inc. All rights reserved.
  * See LICENSE for license details.
  */
+
 namespace GrizzIt\Cache\Common;
 
 interface CacheRegistryInterface
@@ -24,6 +26,7 @@ interface CacheRegistryInterface
      * Retrieves a cache by its key.
      *
      * @param string $key
+     *
      * @return CacheInterface
      */
     public function retrieveCache(
